@@ -556,3 +556,51 @@ footer a:hover {
     overflow: hidden;
     height: 100vh;
 }
+
+/* Showreel Section */
+.showreel-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 0 200px 0;
+}
+
+.showreel-section h2 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 18px;
+    letter-spacing: 1px;
+    color: white;
+}
+
+.showreel-video {
+    width: 90vw;
+    max-width: 1200px;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+    margin-bottom: 10px;
+    background: #111;
+}
+
+.showreel-section p {
+    font-size: 1.1rem;
+    color: #bbb;
+    margin-top: 0;
+}
+
+.wave-divider {
+    line-height: 0;
+    position: relative;
+    top: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 2;
+}
+
+.wave-divider svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+}

@@ -29,18 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         item.classList.add('show');
                     });
                 }
-            } else {
-                // Remove show class from the element
-                entry.target.classList.remove('show');
-                
-                // Only handle work items for portfolio section
-                if (portfolioSection) {
-                    const workItems = portfolioSection.querySelectorAll('.work-item');
-                    workItems.forEach(item => {
-                        item.classList.remove('show');
-                    });
-                }
             }
+            // Do not remove the 'show' class when not intersecting
         });
     }, appearOptions);
 
