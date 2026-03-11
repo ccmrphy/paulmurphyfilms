@@ -307,14 +307,14 @@ footer a:hover {
 }
 
 .about p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 300;
-    margin: 0 auto;
-    line-height: 1.6;
+    margin: 0 auto 1.1rem auto;
+    line-height: 1.7;
     padding-top: 0;
     padding-left: 0;
     padding-right: 0;
-    text-align: justify;
+    text-align: left;
 }
 
 .highlight {
@@ -345,13 +345,17 @@ footer a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 65ch;
+    margin: 0 auto;
 }
 
 .about-image {
     flex: 1;
     display: flex;
     align-items: center;
-    max-width: 400px;
+    justify-content: center;
+    max-width: 65ch;
+    margin: 30px auto 0 auto;
 }
 
 .about-image img {
@@ -360,6 +364,35 @@ footer a:hover {
     max-height: 360px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+.about h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+    font-weight: 500;
+    color: #77947C;
+    text-align: left;
+}
+
+.about-highlights {
+    display: none;
+}
+
+.about-quote {
+    margin: 1.5rem 0;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid #77947C;
+    background-color: rgba(255, 255, 255, 0.08);
+    font-style: italic;
+}
+
+.about-single-column {
+    margin-top: 30px;
+}
+
+.about-hero-image {
+    max-width: 65ch;
+    margin: 25px auto 10px auto;
 }
 
 /* Responsive styles for about page */
@@ -375,6 +408,12 @@ footer a:hover {
     
     .about-image {
         height: 250px;
+        max-width: 100%;
+    }
+
+    .about-lede,
+    .about-text,
+    .about-highlights {
         max-width: 100%;
     }
 }
