@@ -98,6 +98,29 @@ header nav ul li a:hover {
     color: #77947C;
 }
 
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    width: 42px;
+    height: 36px;
+    padding: 6px 4px;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border-radius: 2px;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.menu-toggle span + span {
+    margin-top: 7px;
+}
+
 /* Hero Section */
 .hero {
     height: 100vh;
@@ -446,6 +469,21 @@ footer a:hover {
     gap: 60px;
 }
 
+.contact-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.contact-image img {
+    width: 100%;
+    height: auto;
+    max-height: 560px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
 .contact-info, .contact-form {
     flex: 1;
     text-align: left;
@@ -645,4 +683,331 @@ footer a:hover {
     display: block;
     width: 100%;
     height: 60px;
+}
+
+/* Global mobile-first refinements */
+@media (max-width: 992px) {
+    header .logo h2 {
+        font-size: 1.35rem;
+    }
+
+    header nav ul {
+        gap: 12px;
+    }
+
+    header nav ul li a {
+        font-size: 1.4rem;
+    }
+
+    .portfolio {
+        padding-top: 90px;
+    }
+
+    .work-item {
+        width: calc(50% - 18px);
+    }
+
+    .showreel-section {
+        margin: 24px 0 90px 0;
+        padding: 0 20px;
+    }
+
+    .showreel-section h2,
+    .portfolio h2.featured-title {
+        font-size: 2.2rem;
+    }
+
+    .about {
+        padding-top: 90px;
+    }
+
+    .about p {
+        font-size: 1.1rem;
+    }
+
+    .contact {
+        padding: 100px 0 60px 0;
+    }
+
+    .contact-image img {
+        max-height: 460px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        height: auto;
+        min-height: 70px;
+        padding: 12px 0;
+        overflow: visible;
+    }
+
+    header .container {
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    header .logo {
+        padding-left: 0;
+        text-align: left;
+    }
+
+    header .logo h2 {
+        font-size: 1.1rem;
+        letter-spacing: 0.04em;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: auto;
+    }
+
+    .menu-toggle.open span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.open span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.open span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    header nav {
+        float: none;
+        width: fit-content;
+        max-width: calc(100vw - 28px);
+        order: 3;
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 14px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-8px);
+        transition: max-height 0.25s ease, opacity 0.2s ease, transform 0.2s ease;
+        padding-right: 0;
+        background-color: rgba(22, 24, 28, 0.98);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+        z-index: 20;
+    }
+
+    header nav.open {
+        max-height: 260px;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    header nav ul {
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 0;
+        padding: 10px 12px;
+        width: fit-content;
+    }
+
+    header nav ul li {
+        margin-left: 0;
+        width: auto;
+        text-align: right;
+    }
+
+    header nav ul li a {
+        font-size: 1.05rem;
+        display: inline-block;
+        padding: 2px 0;
+    }
+
+    .hero {
+        background-position: 58% center;
+        min-height: 78vh;
+    }
+
+    .portfolio {
+        padding-top: 80px;
+    }
+
+    .grid {
+        gap: 20px;
+        padding: 0 10px;
+    }
+
+    .work-item {
+        width: 100%;
+        max-width: 420px;
+    }
+
+    .work-item h3 {
+        font-size: 1.05rem;
+    }
+
+    .play-btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    .play-btn i {
+        font-size: 22px;
+    }
+
+    .showreel-section {
+        margin-bottom: 70px;
+    }
+
+    .showreel-section h2,
+    .portfolio h2.featured-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .showreel-video {
+        width: 100%;
+        border-radius: 12px;
+    }
+
+    .about {
+        padding-top: 95px;
+        padding-bottom: 32px;
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+        line-height: 1.6;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .about-image img {
+        max-height: 280px;
+    }
+
+    .contact {
+        padding-top: 100px;
+    }
+
+    .contact .container {
+        padding: 0 16px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 1.4rem;
+        margin-bottom: 20px;
+    }
+
+    .info-item {
+        margin-bottom: 18px;
+    }
+
+    .info-item i {
+        margin-right: 12px;
+    }
+
+    .info-item p {
+        font-size: 1.05rem;
+        word-break: break-word;
+    }
+
+    .social-links {
+        margin-top: 26px;
+    }
+
+    .social-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        margin-right: 14px;
+    }
+
+    .contact-image img {
+        max-height: none;
+        width: 100%;
+        max-width: 520px;
+        object-fit: contain;
+    }
+
+    footer p {
+        padding-top: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 14px;
+    }
+
+    header .logo h2 {
+        font-size: 1rem;
+    }
+
+    header nav ul {
+        gap: 8px;
+    }
+
+    header nav {
+        right: 10px;
+        width: fit-content;
+        max-width: calc(100vw - 20px);
+    }
+
+    header nav ul li a {
+        font-size: 0.95rem;
+    }
+
+    .menu-toggle {
+        width: 38px;
+    }
+
+    .portfolio {
+        padding-top: 74px;
+    }
+
+    .showreel-section h2,
+    .portfolio h2.featured-title {
+        font-size: 1.55rem;
+    }
+
+    .showreel-section p {
+        font-size: 0.95rem;
+    }
+
+    .work-item h3 {
+        font-size: 1rem;
+    }
+
+    .about h2 {
+        font-size: 1.55rem;
+    }
+
+    .about p {
+        font-size: 0.95rem;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .contact {
+        padding-top: 95px;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 1.25rem;
+    }
+
+    .info-item p {
+        font-size: 1rem;
+    }
 }
