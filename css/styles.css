@@ -1,22 +1,30 @@
-/* Base Styles */
+/* ---- Variables ---- */
+:root {
+    --color-bg: rgb(22, 24, 28);
+    --color-accent: #77947C;
+    --color-accent-dim: rgba(119, 148, 124, 0.2);
+    --color-white: #ffffff;
+    --color-muted: #bbb;
+    --font: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+
+/* ---- Base ---- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    background-color: rgb(22,24,28);
-}
-
 html {
     scroll-behavior: smooth;
 }
 
-/* Container */
+body {
+    font-family: var(--font);
+    background-color: var(--color-bg);
+}
+
+/* ---- Container ---- */
 .container {
     margin: 0 auto;
     width: 100%;
@@ -24,78 +32,54 @@ html {
     padding: 0 20px;
 }
 
-/* Header */
+/* ---- Header ---- */
 header {
-    /*background-color: rgba(230,230,230,0);*/
     height: 70px;
-    position: absolute; /* Make header overlay the hero section */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space out the logo and nav */
-}
-
-header::before {
-    content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    /*background: rgba(0, 0, 0, 0); !* Removed overlay to make text more readable *!*/
-    z-index: -1;
+    z-index: 10;
+    display: flex;
+    align-items: center;
 }
 
 header .container {
     display: flex;
-    justify-content: space-between; /* Space out the logo and nav */
-    align-items: center; /* Center items vertically */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
 }
 
 header .logo {
     padding-left: 20px;
-    margin-left: 0;
     font-weight: 200;
-    color: white;
-}
-
-header .logo img {
-    height: 130px;
-    width: auto;
-    margin-top: 90px;
-    margin-left: 30px;
+    color: var(--color-white);
 }
 
 header nav {
-    float: right;
     padding-right: 20px;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 20px; /* Add space between the nav items */
+    gap: 20px;
 }
 
 header nav ul li {
-    display: inline-block;
     margin-left: 20px;
 }
 
 header nav ul li a {
-    color: white;
+    color: var(--color-white);
     text-decoration: none;
     font-weight: 300;
     font-size: 2rem;
-;
 }
 
 header nav ul li a:hover {
-    color: #77947C;
+    color: var(--color-accent);
 }
 
 .menu-toggle {
@@ -112,7 +96,7 @@ header nav ul li a:hover {
     display: block;
     width: 100%;
     height: 2px;
-    background-color: white;
+    background-color: var(--color-white);
     border-radius: 2px;
     transition: transform 0.25s ease, opacity 0.25s ease;
 }
@@ -121,116 +105,140 @@ header nav ul li a:hover {
     margin-top: 7px;
 }
 
-/* Hero Section */
+/* ---- Hero ---- */
 .hero {
     height: 100vh;
-    background-image: linear-gradient(to bottom, rgba(22,24,28, 0) 40%, rgba(22,24,28, 1) 100%), url('../assets/images/director-profile.jpg');
+    position: relative;
+    background-image: linear-gradient(to bottom, rgba(22, 24, 28, 0) 40%, rgba(22, 24, 28, 1) 100%), url('../assets/images/director-profile.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
+    color: var(--color-white);
     display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 0;
+    align-items: flex-end;
+    justify-content: flex-start;
 }
 
-/* Portfolio Section */
+/* Cinematic grain overlay */
+.hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero .container {
+    padding-bottom: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 200;
+    letter-spacing: 0.04em;
+    line-height: 1.1;
+}
+
+.hero-text p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--color-muted);
+    margin-top: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* ---- Portfolio ---- */
 .portfolio {
     min-height: 100vh;
     padding-top: 100px;
     text-align: center;
-    position: relative;
-}
-
-.portfolio .container {
-    scroll-snap-align: start;
-    scroll-snap-stop: always;
-}
-
-.portfolio h2 {
-    font-size: 2.2rem;
-    margin-bottom: 40px;
-    font-weight: 200;
+    background-color: var(--color-bg);
 }
 
 .portfolio h2.featured-title {
-    font-size: 3rem;
-    font-weight: 400;
-    margin: 0 0 50px 0;
+    font-size: 2.8rem;
+    font-weight: 300;
+    margin: 0 0 60px 0;
     text-align: center;
-    color: white;
+    color: var(--color-white);
+    letter-spacing: 0.2em;
 }
 
-.grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin-top: 30px;
-    position: relative;
-    z-index: 1;
+/* ---- Section divider ---- */
+.section-divider {
+    width: 1px;
+    height: 80px;
+    background-color: var(--color-accent);
+    margin: 0 auto 80px auto;
+    opacity: 0.5;
+}
+
+/* ---- Showreel ---- */
+.showreel-section {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.portfolio, .about {
-    background-color: rgb(22,24,28);
-}
-
-.work-item {
-    position: relative;
-    width: calc(33.333% - 20px); /* Make each item take up 1/3 of the space minus gap */
-    max-width: 350px; /* Set a maximum width */
-    overflow: hidden;
-    flex: 0 1 auto; /* Changed from flex: 1 to prevent stretching */
-    margin-bottom: 20px;
-    border-radius: 10px;
-}
-
-.play-btn {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(0, 0, 0, 0.4);
-    color: white;
-    border: none;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    cursor: pointer;
-    z-index: 10;
-    transition: all 0.3s ease;
-    opacity: 0;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 40px 0 80px 0;
 }
 
-.play-btn i {
-    font-size: 28px;
-    transition: transform 0.3s ease;
+.showreel-section h2 {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 28px;
+    letter-spacing: 0.2em;
+    color: var(--color-white);
 }
 
-.play-btn:hover {
-    background-color: rgba(0, 0, 0, 0.6);
-    transform: translate(-50%, -50%) scale(1.1);
+.showreel-video {
+    width: 90vw;
+    max-width: 1200px;
+    border-radius: 18px;
+    box-shadow: 0 4px 32px rgba(0, 0, 0, 0.18);
+    margin-bottom: 16px;
+    background: #111;
 }
 
-.play-btn:hover i {
-    transform: scale(1.1);
+.showreel-section p {
+    font-size: 1rem;
+    color: var(--color-muted);
+    letter-spacing: 0.06em;
 }
 
-.play-btn:hover .film-thumbnail {
-    opacity: 0;
+/* ---- Film rows ---- */
+.films-list {
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.film-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    margin-bottom: 110px;
+}
+
+/* Alternate: even rows flip image to the right */
+.film-row:nth-child(even) .film-media {
+    order: 2;
+}
+
+.film-row:nth-child(even) .film-info {
+    order: 1;
 }
 
 .media-container {
     position: relative;
     width: 100%;
-    padding-top: 177.78%; /* 9:16 Aspect Ratio for portrait videos */
+    aspect-ratio: 2/3;
     overflow: hidden;
     border-radius: 10px;
 }
@@ -254,47 +262,95 @@ header nav ul li a:hover {
     transition: opacity 1s ease;
 }
 
-.work-item:hover .play-btn{
-    opacity: 1;
-}
 
-.work-item:hover .film-video {
-    opacity: 1;
-}
-
-.work-item:hover .film-thumbnail {
+.play-btn {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: var(--color-white);
+    border: none;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
     opacity: 0;
+    transition: opacity 0.2s ease, background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.work-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
+.play-btn i {
+    font-size: 14px;
 }
 
-.work-item h3 {
-    margin-top: 15px;
-    font-size: 1.2rem;
+.play-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* ---- Film info text ---- */
+.film-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.film-number {
+    font-size: 5rem;
+    font-weight: 200;
+    color: rgba(255, 255, 255, 0.06);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    margin-bottom: -10px;
+}
+
+.film-info h3 {
+    font-size: 2.2rem;
     font-weight: 300;
-    color: white;
+    color: var(--color-white);
+    letter-spacing: 0.02em;
 }
 
-/* Footer */
+.film-info .film-year {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.film-tagline {
+    font-size: 1rem;
+    font-weight: 300;
+    color: var(--color-muted);
+    line-height: 1.75;
+}
+
+.film-awards {
+    font-size: 0.8rem;
+    font-weight: 300;
+    color: var(--color-accent);
+    letter-spacing: 0.04em;
+    line-height: 1.7;
+    border-left: 2px solid var(--color-accent);
+    padding-left: 14px;
+    margin-top: 6px;
+    opacity: 0.85;
+}
+
+/* ---- Footer ---- */
 footer {
-    padding: 15px 0;
-    background-color: rgba(22,24,28, 1);
+    padding: 20px 0;
+    background-color: var(--color-bg);
     text-align: center;
-    color: white;
+    color: var(--color-white);
     font-size: 0.9rem;
 }
 
-footer p {
-    padding-top: 80px;
-}
-
 footer a {
-    color: #77947C;
+    color: var(--color-accent);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -303,7 +359,7 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* Fade-in Animation */
+/* ---- Fade-in Animation ---- */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -315,200 +371,179 @@ footer a:hover {
     transform: translateY(0);
 }
 
-/* -------------------------------- About Page -------------------------------------- */
-
-.about {
-    padding: 60px 0 50px 0;
-    background-color: rgb(22,24,28);
-    color: white;
-    text-align: center;
+/* ---- Page Header (About / Contact) ---- */
+.page-header {
+    padding: 160px 0 80px;
+    background-color: var(--color-bg);
+    position: relative;
+    overflow: hidden;
+    color: var(--color-white);
 }
 
-.about h2 {
-    font-size: 2.2rem;
+.page-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.04;
+    pointer-events: none;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
+    padding-left: 40px;
+}
+
+.about-page-header {
+    padding: 160px 0 80px;
+    background-color: var(--color-bg);
+    color: var(--color-white);
+}
+
+.about-page-header .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+    max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.about-header-image img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+}
+
+
+.page-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-accent);
     margin-bottom: 20px;
 }
 
-.about p {
-    font-size: 1.2rem;
-    font-weight: 300;
-    margin: 0 auto 1.1rem auto;
-    line-height: 1.7;
-    padding-top: 0;
-    padding-left: 0;
-    padding-right: 0;
-    text-align: left;
+.page-title {
+    font-size: 5rem;
+    font-weight: 200;
+    color: var(--color-white);
+    letter-spacing: 0.01em;
+    line-height: 1.05;
 }
 
-.highlight {
-    color: #77947C;
+/* ---- About Section ---- */
+.about-section {
+    background-color: var(--color-bg);
+    padding-bottom: 100px;
 }
 
-/* About Page Styles */
-.about-content {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    margin-bottom: 40px;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+.about-wide-image {
+    max-width: 960px;
+    margin: 0 auto 70px;
+    padding: 0 40px;
 }
 
-.about-content:first-of-type {
-    margin-top: 40px;
-}
-
-.about-content:nth-child(even) {
-    flex-direction: row-reverse;
-}
-
-.about-text {
-    flex: 1.5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 65ch;
-    margin: 0 auto;
-}
-
-.about-image {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-width: 65ch;
-    margin: 30px auto 0 auto;
-}
-
-.about-image img {
+.about-wide-image img {
     width: 100%;
-    height: auto;
-    max-height: 360px;
+    height: 460px;
     object-fit: cover;
     border-radius: 10px;
+    display: block;
 }
 
-.about h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.75rem;
-    font-weight: 500;
-    color: #77947C;
-    text-align: left;
-}
-
-.about-highlights {
-    display: none;
-}
-
-.about-quote {
-    margin: 1.5rem 0;
-    padding: 1rem 1.25rem;
-    border-left: 3px solid #77947C;
-    background-color: rgba(255, 255, 255, 0.08);
-    font-style: italic;
-}
-
-.about-single-column {
-    margin-top: 30px;
-}
-
-.about-hero-image {
-    max-width: 65ch;
-    margin: 25px auto 10px auto;
-}
-
-/* Responsive styles for about page */
-@media (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-        gap: 20px;
-    }
-    
-    .about-content:nth-child(even) {
-        flex-direction: column;
-    }
-    
-    .about-image {
-        height: 250px;
-        max-width: 100%;
-    }
-
-    .about-lede,
-    .about-text,
-    .about-highlights {
-        max-width: 100%;
-    }
-}
-
-/* -------------------------------- Contact Page -------------------------------------- */
-
-.contact {
-    padding: 120px 0;
-    background-color: rgb(22,24,28);
-    min-height: calc(100vh - 70px - 60px); /* Subtract header and footer height */
-    color: white;
+.image-caption {
+    font-size: 0.78rem;
+    font-weight: 300;
+    color: var(--color-muted);
+    letter-spacing: 0.08em;
+    margin-top: 12px;
     text-align: center;
+    opacity: 0.65;
 }
 
-.contact .container {
-    width: 100%;
-    max-width: 1400px;
+.about-section .about-body {
+    max-width: 680px;
+    margin: 0 auto 80px;
+    padding: 0 40px;
+}
+
+.about-body p {
+    font-size: 1.3rem;
+    font-weight: 200;
+    line-height: 1.75;
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+}
+
+/* ---- Contact Section ---- */
+.contact-section {
+    padding: 140px 0 100px;
+    background-color: var(--color-bg);
+    color: var(--color-white);
+}
+
+.contact-title {
+    margin-bottom: 40px;
+}
+
+.contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    max-width: 1060px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 40px;
 }
 
-.contact h2 {
-    font-size: 3rem;
-    margin-bottom: 50px;
-}
-
-.contact-container {
+.contact-info {
     display: flex;
-    justify-content: space-between;
-    gap: 60px;
+    flex-direction: column;
 }
 
-.contact-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+.contact-email {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 200;
+    color: var(--color-white);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    line-height: 1.3;
+    margin-bottom: 28px;
+    transition: color 0.3s ease;
+    word-break: break-word;
+}
+
+.contact-email:hover {
+    color: var(--color-accent);
+}
+
+.contact-location {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--color-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.contact-location i {
+    color: var(--color-accent);
+    margin-right: 10px;
 }
 
 .contact-image img {
     width: 100%;
-    height: auto;
-    max-height: 560px;
-    object-fit: contain;
     border-radius: 10px;
-}
-
-.contact-info, .contact-form {
-    flex: 1;
-    text-align: left;
-}
-
-.contact-info h3, .contact-form h3 {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
-    color: #77947C;
-}
-
-.info-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 25px;
-}
-
-.info-item i {
-    font-size: 1.5rem;
-    margin-right: 20px;
-    color: #77947C;
-}
-
-.info-item p {
-    font-size: 1.4rem;
+    object-fit: cover;
+    display: block;
 }
 
 .social-links {
@@ -522,170 +557,28 @@ footer a:hover {
     justify-content: center;
     width: 50px;
     height: 50px;
-    background-color: rgba(119, 148, 124, 0.2);
+    background-color: var(--color-accent-dim);
     border-radius: 50%;
     margin-right: 20px;
-    color: #77947C;
+    color: var(--color-accent);
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.5rem;
 }
 
 .social-icon:hover {
-    background-color: #77947C;
-    color: white;
+    background-color: var(--color-accent);
+    color: var(--color-white);
     transform: translateY(-3px);
 }
 
-.form-group {
-    margin-bottom: 25px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-}
-
-.form-group input, .form-group textarea {
-    width: 100%;
-    padding: 15px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 4px;
-    color: white;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    transition: all 0.3s ease;
-    font-size: 1.1rem;
-}
-
-.form-group textarea {
-    min-height: 150px;
-}
-
-.form-group input:focus, .form-group textarea:focus {
-    outline: none;
-    border-color: #77947C;
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.submit-btn {
-    background-color: #77947C;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 4px;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 1.2rem;
-}
-
-.submit-btn:hover {
-    background-color: #5a735e;
-    transform: translateY(-2px);
-}
-
-/* Responsive styles for contact page */
-@media (max-width: 1200px) {
-    .contact .container {
-        max-width: 100%;
-        padding: 0 20px;
-    }
-    
-    .contact h2 {
-        font-size: 2.5rem;
-    }
-    
-    .contact-info h3, .contact-form h3 {
-        font-size: 1.8rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column;
-        gap: 40px;
-    }
-    
-    .contact-info, .contact-form {
-        width: 100%;
-    }
-    
-    .contact h2 {
-        font-size: 2.2rem;
-        margin-bottom: 30px;
-    }
-    
-    .contact-info h3, .contact-form h3 {
-        font-size: 1.6rem;
-    }
-    
-    .info-item p {
-        font-size: 1.2rem;
-    }
-    
-    .form-group input, .form-group textarea {
-        font-size: 1rem;
-    }
-}
-
-/* Scroll lock class */
+/* ---- Scroll lock ---- */
 .scroll-lock {
     overflow: hidden;
     height: 100vh;
 }
 
-/* Showreel Section */
-.showreel-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin: 40px 0 200px 0;
-}
-
-.showreel-section h2 {
-    font-size: 2.2rem;
-    font-weight: 600;
-    margin-bottom: 18px;
-    letter-spacing: 1px;
-    color: white;
-}
-
-.showreel-video {
-    width: 90vw;
-    max-width: 1200px;
-    border-radius: 18px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.18);
-    margin-bottom: 10px;
-    background: #111;
-}
-
-.showreel-section p {
-    font-size: 1.1rem;
-    color: #bbb;
-    margin-top: 0;
-}
-
-.wave-divider {
-    line-height: 0;
-    position: relative;
-    top: 0;
-    width: 100%;
-    background: transparent;
-    z-index: 2;
-}
-
-.wave-divider svg {
-    display: block;
-    width: 100%;
-    height: 60px;
-}
-
-/* Global mobile-first refinements */
+/* ---- Responsive: 992px ---- */
 @media (max-width: 992px) {
     header .logo h2 {
         font-size: 1.35rem;
@@ -703,37 +596,64 @@ footer a:hover {
         padding-top: 90px;
     }
 
-    .work-item {
-        width: calc(50% - 18px);
-    }
-
     .showreel-section {
-        margin: 24px 0 90px 0;
+        margin: 24px 0 60px 0;
         padding: 0 20px;
     }
 
     .showreel-section h2,
     .portfolio h2.featured-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
 
-    .about {
-        padding-top: 90px;
+    .page-title {
+        font-size: 3.8rem;
     }
 
-    .about p {
-        font-size: 1.1rem;
+    .page-header .container {
+        padding-left: 24px;
     }
 
-    .contact {
-        padding: 100px 0 60px 0;
+    .about-page-header .container {
+        gap: 40px;
+        padding-left: 24px;
     }
 
-    .contact-image img {
-        max-height: 460px;
+    .about-section .about-body {
+        padding: 0 24px 60px;
+    }
+
+    .about-wide-image {
+        padding: 0 24px;
+    }
+
+    .contact-layout {
+        gap: 50px;
+        padding: 0 24px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .films-list {
+        padding: 0 24px;
+    }
+
+    .film-row {
+        gap: 50px;
+    }
+
+    .film-info h3 {
+        font-size: 1.8rem;
+    }
+
+    .film-number {
+        font-size: 4rem;
     }
 }
 
+/* ---- Responsive: 768px ---- */
 @media (max-width: 768px) {
     header {
         height: auto;
@@ -832,40 +752,61 @@ footer a:hover {
         min-height: 78vh;
     }
 
+    .hero-text h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero-text p {
+        font-size: 0.9rem;
+    }
+
     .portfolio {
         padding-top: 80px;
     }
 
-    .grid {
-        gap: 20px;
-        padding: 0 10px;
+    .section-divider {
+        height: 50px;
+        margin-bottom: 50px;
     }
 
-    .work-item {
-        width: 100%;
-        max-width: 420px;
+    .film-row {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 70px;
     }
 
-    .work-item h3 {
-        font-size: 1.05rem;
+    .film-row:nth-child(even) .film-media {
+        order: initial;
     }
 
-    .play-btn {
-        width: 56px;
-        height: 56px;
+    .film-row:nth-child(even) .film-info {
+        order: initial;
     }
 
-    .play-btn i {
-        font-size: 22px;
+    .films-list {
+        padding: 0 20px;
+    }
+
+    .film-number {
+        font-size: 3rem;
+        margin-bottom: -6px;
+    }
+
+    .film-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .film-tagline {
+        max-width: 100%;
     }
 
     .showreel-section {
-        margin-bottom: 70px;
+        margin-bottom: 50px;
     }
 
     .showreel-section h2,
     .portfolio h2.featured-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
         margin-bottom: 20px;
     }
 
@@ -874,51 +815,59 @@ footer a:hover {
         border-radius: 12px;
     }
 
-    .about {
-        padding-top: 95px;
-        padding-bottom: 32px;
+    .page-header {
+        padding: 120px 0 50px;
     }
 
-    .about h2 {
-        font-size: 1.8rem;
+    .page-header .container {
+        padding-left: 20px;
     }
 
-    .about p {
-        font-size: 1rem;
-        line-height: 1.6;
-        padding-left: 16px;
-        padding-right: 16px;
+    .page-title {
+        font-size: 2.8rem;
     }
 
-    .about-image img {
-        max-height: 280px;
+    .about-page-header {
+        padding: 110px 0 50px;
     }
 
-    .contact {
-        padding-top: 100px;
+    .about-page-header .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding-left: 20px;
     }
 
-    .contact .container {
+    .about-section .about-body {
+        padding: 0 16px 50px;
+    }
+
+
+    .about-wide-image {
+        padding: 0 16px;
+        margin-bottom: 50px;
+    }
+
+    .about-wide-image img {
+        height: 300px;
+    }
+
+    .about-body p {
+        font-size: 0.95rem;
+        line-height: 1.8;
+    }
+
+    .about-body p.lead {
+        font-size: 1.1rem;
+    }
+
+    .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
         padding: 0 16px;
     }
 
-    .contact-info h3,
-    .contact-form h3 {
-        font-size: 1.4rem;
-        margin-bottom: 20px;
-    }
-
-    .info-item {
-        margin-bottom: 18px;
-    }
-
-    .info-item i {
-        margin-right: 12px;
-    }
-
-    .info-item p {
-        font-size: 1.05rem;
-        word-break: break-word;
+    .contact-email {
+        font-size: 1.2rem;
     }
 
     .social-links {
@@ -931,19 +880,9 @@ footer a:hover {
         font-size: 1.2rem;
         margin-right: 14px;
     }
-
-    .contact-image img {
-        max-height: none;
-        width: 100%;
-        max-width: 520px;
-        object-fit: contain;
-    }
-
-    footer p {
-        padding-top: 30px;
-    }
 }
 
+/* ---- Responsive: 480px ---- */
 @media (max-width: 480px) {
     .container {
         padding: 0 14px;
@@ -951,10 +890,6 @@ footer a:hover {
 
     header .logo h2 {
         font-size: 1rem;
-    }
-
-    header nav ul {
-        gap: 8px;
     }
 
     header nav {
@@ -977,37 +912,42 @@ footer a:hover {
 
     .showreel-section h2,
     .portfolio h2.featured-title {
-        font-size: 1.55rem;
+        font-size: 1.4rem;
     }
 
     .showreel-section p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
     }
 
-    .work-item h3 {
-        font-size: 1rem;
+    .hero-text h1 {
+        font-size: 2rem;
     }
 
-    .about h2 {
-        font-size: 1.55rem;
+    .film-number {
+        font-size: 2.5rem;
     }
 
-    .about p {
-        font-size: 0.95rem;
-        padding-left: 20px;
-        padding-right: 20px;
+    .film-info h3 {
+        font-size: 1.3rem;
     }
 
-    .contact {
-        padding-top: 95px;
+    .film-tagline {
+        font-size: 0.9rem;
     }
 
-    .contact-info h3,
-    .contact-form h3 {
-        font-size: 1.25rem;
+    .film-awards {
+        font-size: 0.75rem;
     }
 
-    .info-item p {
-        font-size: 1rem;
+    .page-title {
+        font-size: 2.2rem;
+    }
+
+    .about-wide-image img {
+        height: 240px;
+    }
+
+    .contact-email {
+        font-size: 1.05rem;
     }
 }
