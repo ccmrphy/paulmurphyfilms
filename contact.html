@@ -3,68 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Contact — Paul Murphy Films</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo"><h2>PAUL MURPHY FILMS</h2></div>
-        <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav id="site-nav">
-            <ul>
-                <li><a href="index.html">work</a></li>
-                <li><a href="about.html">about</a></li>
-                <li><a href="contact.html">contact</a></li>
-            </ul>
-        </nav>
-    </div>
+<header id="site-header">
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav">
+        <ul>
+            <li><a href="index.html">home</a></li>
+            <li><a href="work.html">work</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact.html" class="active">contact</a></li>
+        </ul>
+    </nav>
 </header>
 
-<section class="contact-section">
-    <div class="container">
-        <div class="contact-layout">
+<div class="contact-page">
 
-            <div class="contact-info fade-in">
-                <span class="page-label">Get in touch</span>
-                <h1 class="page-title contact-title">Contact.</h1>
-                <a href="mailto:paulmurphyfilms@gmail.com" class="contact-email">paulmurphyfilms@gmail.com</a>
-                <p class="contact-location">
-                    <i class="fas fa-map-marker-alt"></i>
-                    Wellington, New Zealand
-                </p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/paulmurphyfilms/" class="social-icon" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.linkedin.com/in/paul-murphy-39bb9875/" class="social-icon" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.imdb.com/name/nm0614609/?ref_=nv_sr_srsg_0_tt_1_nm_7_in_0_q_paul%2520murphy" class="social-icon" target="_blank" aria-label="IMDb"><i class="fab fa-imdb"></i></a>
-                </div>
-            </div>
-
-            <div class="contact-image fade-in">
-                <img src="assets/images/dad-lowdown-crew.jpg" alt="Paul Murphy on set with the Lowdown Dirty Criminals crew">
-            </div>
-
+    <div class="contact-info-col fade-in">
+        <span class="contact-eyebrow">Get in touch</span>
+        <h1 class="contact-heading">Let's<br><em>talk.</em></h1>
+        <a href="mailto:paulmurphyfilms@gmail.com" class="contact-email-link">paulmurphyfilms@gmail.com</a>
+        <p class="contact-location-txt">
+            <i class="fas fa-location-dot"></i>
+            Wellington, New Zealand
+        </p>
+        <div class="social-links">
+            <a href="https://www.instagram.com/paulmurphyfilms/" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/paul-murphy-39bb9875/" class="social-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://www.imdb.com/name/nm0614609/" class="social-icon" target="_blank" rel="noopener" aria-label="IMDb">
+                <i class="fab fa-imdb"></i>
+            </a>
         </div>
     </div>
-</section>
+
+    <div class="contact-img-col">
+        <img src="assets/images/dad-lowdown-crew.jpg" alt="Paul Murphy on set with the Lowdown Dirty Criminals crew">
+    </div>
+
+</div>
 
 <footer>
-    <div class="container">
-        <p>© 2025 Paul Murphy | <a href="contact.html">Contact</a></p>
-    </div>
+    <p>© 2025 Paul Murphy</p>
+    <a href="mailto:paulmurphyfilms@gmail.com">paulmurphyfilms@gmail.com</a>
 </footer>
 
 <script src="js/fade-in.js"></script>
 <script src="js/mobile-menu.js"></script>
+<script src="js/nav-scroll.js"></script>
 </body>
 </html>

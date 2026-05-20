@@ -3,133 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Paul Murphy Films</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
-<header>
-    <div class="container">
-        <div class="logo">
-            <h2>PAUL MURPHY FILMS</h2>
-        </div>
-        <button class="menu-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <nav id="site-nav">
-            <ul>
-                <li><a href="index.html">work</a></li>
-                <li><a href="about.html">about</a></li>
-                <li><a href="contact.html">contact</a></li>
-            </ul>
-        </nav>
-    </div>
+<header id="site-header">
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+    </button>
+    <nav id="site-nav">
+        <ul>
+            <li><a href="index.html" class="active">home</a></li>
+            <li><a href="work.html">work</a></li>
+            <li><a href="about.html">about</a></li>
+            <li><a href="contact.html">contact</a></li>
+        </ul>
+    </nav>
 </header>
 
 <section class="hero">
-    <div class="container fade-in">
-        <div class="hero-text">
-            <h1>Paul Murphy</h1>
-            <p>New Zealand Feature Film Director</p>
-        </div>
+    <div class="hero-text">
+        <span class="hero-eyebrow">Director · Wellington, New Zealand</span>
+        <h1 class="hero-name">Paul<br><em>Murphy</em></h1>
+        <p class="hero-subtitle">New Zealand Feature Film Director</p>
+    </div>
+    <div class="hero-image">
+        <img src="assets/images/director-profile.jpg" alt="Paul Murphy">
     </div>
 </section>
 
-<section id="work" class="portfolio">
-    <div class="container">
-        <h2 class="featured-title fade-in">FEATURE FILMS</h2>
-        <div class="films-list">
+<div class="marquee-track">
+    <div class="marquee-inner">
+        <span class="marquee-item">Director</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Wellington, New Zealand</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Three Feature Films</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">40 Years in Film</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Key Grip · Lord of the Rings</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">King Kong</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Second Hand Wedding</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Love Birds</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Lowdown Dirty Criminals</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Director</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Wellington, New Zealand</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Three Feature Films</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">40 Years in Film</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Key Grip · Lord of the Rings</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">King Kong</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Second Hand Wedding</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Love Birds</span>
+        <span class="marquee-sep">—</span>
+        <span class="marquee-item">Lowdown Dirty Criminals</span>
+        <span class="marquee-sep">—</span>
+    </div>
+</div>
 
-            <div class="film-row fade-in hover-video">
-                <div class="film-media">
-                    <div class="media-container">
-                        <img src="assets/images/second-hand-wedding.jpg" alt="Second Hand Wedding">
-                        <video class="film-video" muted>
-                            <source src="assets/videos/shw-portrait.mp4" type="video/mp4">
-                        </video>
-                        <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="film-info">
-                    <span class="film-number">01</span>
-                    <h3>Second Hand Wedding</h3>
-                    <p class="film-year">2007</p>
-                    <p class="film-tagline">A family rom-com shot on a $200k budget that ran 17 weeks in cinemas, reaching 7th on the all-time NZ box office.</p>
-                    <p class="film-awards">Best Female Lead · Best Supporting Actress<br>Qantas NZ Film Awards 2008</p>
+<section class="films-section">
+    <div class="section-label">Feature Films</div>
+    <div class="films-list">
+
+        <div class="film-item fade-in hover-video">
+            <div class="film-media">
+                <div class="media-container">
+                    <img src="assets/images/second-hand-wedding.jpg" alt="Second Hand Wedding">
+                    <video class="film-video" muted>
+                        <source src="assets/videos/shw-portrait.mp4" type="video/mp4">
+                    </video>
+                    <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
                 </div>
             </div>
-
-            <div class="film-row fade-in hover-video">
-                <div class="film-media">
-                    <div class="media-container">
-                        <img src="assets/images/love-birds.jpg" alt="Love Birds">
-                        <video class="film-video" muted>
-                            <source src="assets/videos/love-birds-portrait.mp4" type="video/mp4">
-                        </video>
-                        <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="film-info">
-                    <span class="film-number">02</span>
-                    <h3>Love Birds</h3>
-                    <p class="film-year">2011</p>
-                    <p class="film-tagline">Starring Rhys Darby and Sally Hawkins. Despite a national disaster impacting its release, it became the 3rd highest-grossing New Zealand film of the year.</p>
-                    <p class="film-awards">Best Director, Foreign Film (Audience Award)<br>Golden Rooster &amp; Hundred Flowers Festival, China</p>
-                </div>
+            <div class="film-info">
+                <span class="film-number">01</span>
+                <h3 class="film-title">Second Hand Wedding</h3>
+                <p class="film-year">2008</p>
+                <p class="film-tagline">A family rom-com shot on a $200k budget that ran 17 weeks in cinemas, reaching 7th on the all-time NZ box office.</p>
+                <p class="film-awards">Best Female Lead · Best Supporting Actress<br>Qantas NZ Film Awards 2008</p>
             </div>
-
-            <div class="film-row fade-in hover-video">
-                <div class="film-media">
-                    <div class="media-container">
-                        <img src="assets/images/lowdown-dirty-criminals.jpg" alt="Lowdown Dirty Criminals">
-                        <video class="film-video" muted>
-                            <source src="assets/videos/lowdown-portrait.mp4" type="video/mp4">
-                        </video>
-                        <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="film-info">
-                    <span class="film-number">03</span>
-                    <h3>Lowdown Dirty Criminals</h3>
-                    <p class="film-year">2020</p>
-                    <p class="film-tagline">Starring James Rolleston, Samuel Austin and Rebecca Gibney. Two small-time crooks accidentally kill the wrong man and find themselves hunted by Wellington's most feared crime boss.</p>
-                    <p class="film-awards">Available on Apple TV</p>
-                </div>
-            </div>
-
         </div>
-    </div>
 
-    <div class="section-divider"></div>
+        <div class="film-item fade-in hover-video">
+            <div class="film-media">
+                <div class="media-container">
+                    <img src="assets/images/love-birds.jpg" alt="Love Birds">
+                    <video class="film-video" muted>
+                        <source src="assets/videos/love-birds-portrait.mp4" type="video/mp4">
+                    </video>
+                    <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
+                </div>
+            </div>
+            <div class="film-info">
+                <span class="film-number">02</span>
+                <h3 class="film-title">Love Birds</h3>
+                <p class="film-year">2011</p>
+                <p class="film-tagline">Starring Rhys Darby and Sally Hawkins. Despite a national disaster impacting its release, it became the 3rd highest-grossing New Zealand film of the year.</p>
+                <p class="film-awards">Best Director, Foreign Film (Audience Award)<br>Golden Rooster &amp; Hundred Flowers Festival, China</p>
+            </div>
+        </div>
 
-    <div class="showreel-section fade-in">
-        <h2 class="featured-title fade-in">SHOWREEL</h2>
-        <video
-            class="showreel-video"
-            controls
-        >
-            <source src="assets/videos/showreel_compressed.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <p>A selection of work by Paul Murphy</p>
+        <div class="film-item fade-in hover-video">
+            <div class="film-media">
+                <div class="media-container">
+                    <img src="assets/images/lowdown-dirty-criminals.jpg" alt="Lowdown Dirty Criminals">
+                    <video class="film-video" muted>
+                        <source src="assets/videos/lowdown-portrait.mp4" type="video/mp4">
+                    </video>
+                    <button class="play-btn"><i class="fas fa-volume-xmark"></i></button>
+                </div>
+            </div>
+            <div class="film-info">
+                <span class="film-number">03</span>
+                <h3 class="film-title">Lowdown Dirty Criminals</h3>
+                <p class="film-year">2020</p>
+                <p class="film-tagline">Starring James Rolleston, Samuel Austin and Rebecca Gibney. Two small-time crooks accidentally kill the wrong man and find themselves hunted by Wellington's most feared crime boss.</p>
+                <p class="film-awards">Available on Apple TV · Prime Video · TVNZ On Demand</p>
+            </div>
+        </div>
+
     </div>
+</section>
+
+<section class="showreel-section fade-in">
+    <div class="section-label">Showreel</div>
+    <video class="showreel-video" controls>
+        <source src="assets/videos/showreel_compressed.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <p class="showreel-caption">A selection of work by Paul Murphy</p>
 </section>
 
 <footer>
-    <div class="container">
-        <p>© 2025 Paul Murphy | <a href="contact.html">Contact</a></p>
-    </div>
+    <p>© 2025 Paul Murphy</p>
+    <a href="contact.html">Get in touch</a>
 </footer>
-</body>
+
 <script src="js/fade-in.js"></script>
 <script src="js/hover-video.js"></script>
 <script src="js/mobile-menu.js"></script>
+<script src="js/nav-scroll.js"></script>
+</body>
 </html>
-
